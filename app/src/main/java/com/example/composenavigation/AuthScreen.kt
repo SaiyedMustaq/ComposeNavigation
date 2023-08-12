@@ -85,7 +85,7 @@ fun LoginPage(navController: NavController) {
 
                 Box(modifier = Modifier.size(0.dp,100.dp))
                 Button(onClick = {
-                    navController.navigate(Screen.SignUpScreen.routes)
+                    navController.navigate(Screen.SignUpScreen.withArgs(userName))
                 }, modifier = Modifier
                     .size(200.dp, 60.dp)
                     .align(Alignment.CenterHorizontally),) {
@@ -109,17 +109,17 @@ fun LoginPage(navController: NavController) {
 fun LoginPreview() {
     val navController= rememberNavController()
     ComposeNavigationTheme {
-        SignUpPage(navController)
+        SignUpPage(navController,"")
     }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SignUpPage(navController: NavController){
+fun SignUpPage(navController: NavController,name:String){
     Scaffold(
         topBar = {
             TopAppBar(title = {
-                Text("Sign Up")
+                Text(name)
             }, navigationIcon = {
                 IconButton(onClick = { navController.navigateUp() }) {
                     Icon(
