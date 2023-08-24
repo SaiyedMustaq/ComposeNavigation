@@ -1,11 +1,9 @@
 package com.example.composenavigation
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -85,7 +83,7 @@ fun LoginPage(navController: NavController) {
 
                 Box(modifier = Modifier.size(0.dp,100.dp))
                 Button(onClick = {
-                    navController.navigate(Screen.SignUpScreen.withArgs(userName))
+                    navController.navigate(NavigationScreen.SignUpScreen.navigateWithData(userName))
                 }, modifier = Modifier
                     .size(200.dp, 60.dp)
                     .align(Alignment.CenterHorizontally),) {
@@ -93,7 +91,7 @@ fun LoginPage(navController: NavController) {
                 }
                 Box(modifier = Modifier.size(0.dp,10.dp))
                 Button(onClick = {
-                    navController.navigate(Screen.ForgotScreen.routes)
+                    navController.navigate(NavigationScreen.ForgotNavigationScreen.routes)
                 }, modifier = Modifier
                     .size(200.dp, 60.dp)
                     .align(Alignment.CenterHorizontally),) {
